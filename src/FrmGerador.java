@@ -22,6 +22,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import java.awt.SystemColor;
+import javax.swing.JCheckBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FrmGerador extends JFrame {
 
@@ -147,6 +150,24 @@ public class FrmGerador extends JFrame {
 		rdbtnNewRadioButton_1_1.setBackground(SystemColor.inactiveCaptionBorder);
 		rdbtnNewRadioButton_1_1.setBounds(117, 15, 52, 23);
 		panel_1_1_1_1.add(rdbtnNewRadioButton_1_1);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Li e concordo com os termos de uso");
+		chckbxNewCheckBox.setBackground(SystemColor.inactiveCaptionBorder);
+		chckbxNewCheckBox.setBounds(6, 238, 208, 23);
+		contentPane.add(chckbxNewCheckBox);
+		
+		JLabel lblNewLabel = new JLabel("Ler termos");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FrmTermos frm = new FrmTermos();
+				frm.setVisible(true);
+			}
+		});
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setForeground(SystemColor.textHighlight);
+		lblNewLabel.setBounds(220, 243, 63, 14);
+		contentPane.add(lblNewLabel);
 	}
 
 	protected void gerarPixQrCode() {
